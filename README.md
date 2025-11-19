@@ -8,17 +8,20 @@ Simple Logger for Unity.
 
 ```cs
 
+using UnityLogger;
+
 namespace MyNamespace
 {
-	using Log = UnityLogWrapper.Logger<MyClass>;
+	using Log = Logger<MyClass>;
 
 	public class MyClass
 	{
 	  	public void SomeMethod()
 	  	{
-			Log.Info("Some info.");
-			Log.Verbose("Some verbose thing");
-			Log.Error("Some error occured");
+	  	    Logger.LogLevel = Exception;
+			Log.Info("Info message.");
+			Log.Debug("Debug message.");
+			Log.Error("Error occurred");~~~~
 			try
 			{
 				int crash = 1 / 0;

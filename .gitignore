@@ -1,3 +1,6 @@
-/RetartedUnityLog/obj
 /.idea
 /obj
+/UnityLogger/.idea
+/UnityLogger/obj
+/UnityLogger/bin
+UnityLogger.sln.DotSettings.user

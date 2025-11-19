@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace UnityLogWrapper
+namespace UnityLogger
 {
 	public enum LogLevel
 	{
@@ -69,8 +68,6 @@ namespace UnityLogWrapper
 
 	public static class Logger
 	{
-		public static ILogWriter LogWriter;
-
 		public static LogLevel LogLevel = LogLevel.Info;
 
 		internal static void WriteLog(LogLevel level, Type callerType, string message)
@@ -78,17 +75,6 @@ namespace UnityLogWrapper
 			if (level < LogLevel)
 				return;
 
-			// checking for null instead of ?. operator since someone might inherit ILogWriter from monobehaviour
-			if (LogWriter != null)
-			{
-				LogWriter.Write($"{level}:{callerType}: {message}");
-			}
-
-			LogUnity(level, message);
-		}
-		
-		private static void LogUnity(LogLevel level, string message)
-		{
 			switch (level)
 			{
 				case LogLevel.Debug:
